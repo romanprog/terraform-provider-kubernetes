@@ -13,7 +13,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
 )
 
 func TestKubernetesManifest_CustomResource_Multiversion(t *testing.T) {

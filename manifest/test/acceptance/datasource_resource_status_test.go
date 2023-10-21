@@ -11,10 +11,10 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
 
-	tfstatehelper "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/state"
+	tfstatehelper "github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/state"
 )
 
 func TestDataSourceKubernetesResourceStatus_Deployment(t *testing.T) {

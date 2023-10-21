@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/morph"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/morph"
 )
 
 // ToTFValue converts a Kubernetes dynamic client unstructured value

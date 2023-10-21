@@ -15,8 +15,8 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
-	tfstatehelper "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/state"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
+	tfstatehelper "github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/state"
 )
 
 func TestKubernetesManifest_CustomResource_OAPIv3(t *testing.T) {

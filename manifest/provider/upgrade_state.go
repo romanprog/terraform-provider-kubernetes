@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/morph"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/morph"
 )
 
 // UpgradeResourceState isn't really useful in this provider, but we have to loop the state back through to keep Terraform happy.

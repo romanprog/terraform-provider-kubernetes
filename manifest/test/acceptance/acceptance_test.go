@@ -16,10 +16,10 @@ import (
 	"testing"
 	"time"
 
-	tftest "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/plugintest"
+	tftest "github.com/romanprog/terraform-provider-kubernetes/manifest/test/plugintest"
 	"k8s.io/client-go/rest"
 
-	kuberneteshelper "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
+	kuberneteshelper "github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
 )
 
 var tfhelper *tftest.Helper

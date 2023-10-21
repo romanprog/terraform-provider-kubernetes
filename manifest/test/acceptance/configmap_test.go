@@ -11,9 +11,9 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
-	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
-	tfstatehelper "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/state"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
+	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
+	tfstatehelper "github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/state"
 )
 
 // This test case tests a ConfigMap but also is a demonstration of some the assert functions
