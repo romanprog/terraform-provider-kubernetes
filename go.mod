@@ -1,4 +1,4 @@
-module github.com/hashicorp/terraform-provider-kubernetes
+module github.com/romanprog/terraform-provider-kubernetes
 
 require (
 	github.com/Masterminds/semver v1.5.0
