@@ -4,9 +4,12 @@
 package kubernetes
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
+	"reflect"
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -15,6 +18,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+	v1test "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -263,16 +267,41 @@ func resourceKubernetesIngressV1Read(ctx context.Context, d *schema.ResourceData
 	if err != nil {
 		return diag.FromErr(err)
 	}
-
+	var st *v1test.LoadBalancerStatus
+	err = JSONCopy(ing.Status.LoadBalancer, st)
 	err = d.Set("status", []interface{}{
 		map[string][]interface{}{
-			"load_balancer": flattenLoadBalancerStatus(ing.Status.LoadBalancer),
+			"load_balancer": flattenLoadBalancerStatus(*st),
 		},
 	})
 	if err != nil {
 		return diag.FromErr(err)
 	}
 
+	return nil
+}
+
+// JSONCopy - convert interface data in to type of out with JSON tags.
+func JSONCopy(in, out interface{}) error {
+	// t := reflect.TypeOf(out)
+	if reflect.ValueOf(out).IsNil() {
+		return fmt.Errorf("can't write to nil target")
+	}
+
+	buffer := &bytes.Buffer{}
+	encoder := json.NewEncoder(buffer)
+	encoder.SetEscapeHTML(false)
+	encoder.SetIndent(" ", " ")
+	err := encoder.Encode(in)
+	if err != nil {
+		return err
+	}
+	//log.Warnf("JSON: %v", buffer.String())
+	decoder := json.NewDecoder(buffer)
+	err = decoder.Decode(&out)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 

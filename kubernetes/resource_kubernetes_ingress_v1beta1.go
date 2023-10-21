@@ -9,6 +9,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+	v1test "k8s.io/api/core/v1"
 	networking "k8s.io/api/networking/v1beta1"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
@@ -255,10 +256,11 @@ func resourceKubernetesIngressV1Beta1Read(ctx context.Context, d *schema.Resourc
 	if err != nil {
 		return diag.FromErr(err)
 	}
-
+	var st *v1test.LoadBalancerStatus
+	err = JSONCopy(ing.Status.LoadBalancer, st)
 	err = d.Set("status", []interface{}{
 		map[string][]interface{}{
-			"load_balancer": flattenLoadBalancerStatus(ing.Status.LoadBalancer),
+			"load_balancer": flattenLoadBalancerStatus(*st),
 		},
 	})
 	if err != nil {
