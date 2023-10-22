@@ -4,9 +4,12 @@
 package kubernetes
 
 import (
+	"reflect"
+
 	gversion "github.com/hashicorp/go-version"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	v1 "k8s.io/api/core/v1"
+	networking "k8s.io/api/networking/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
 )
 
@@ -121,17 +124,18 @@ func flattenServiceSpec(in v1.ServiceSpec) []interface{} {
 	return []interface{}{att}
 }
 
-func flattenLoadBalancerStatus(in v1.LoadBalancerStatus) []interface{} {
-	out := make([]interface{}, len(in.Ingress))
-	for i, ingress := range in.Ingress {
+func flattenLoadBalancerStatus[V v1.LoadBalancerStatus | networking.IngressLoadBalancerStatus](in V) []interface{} {
+	inVal := reflect.ValueOf(in)
+	ingSlice := inVal.FieldByName("Ingress")
+	out := make([]interface{}, ingSlice.Len())
+
+	for i := 0; i < ingSlice.Len(); i++ {
+		ingress := ingSlice.Index(i)
 		att := make(map[string]interface{})
-
-		att["ip"] = ingress.IP
-		att["hostname"] = ingress.Hostname
-
+		att["ip"] = ingress.FieldByName("IP")
+		att["hostname"] = ingress.FieldByName("Hostname")
 		out[i] = att
 	}
-
 	return []interface{}{
 		map[string][]interface{}{
 			"ingress": out,

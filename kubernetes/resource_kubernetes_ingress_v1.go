@@ -18,7 +18,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	v1test "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -267,11 +266,9 @@ func resourceKubernetesIngressV1Read(ctx context.Context, d *schema.ResourceData
 	if err != nil {
 		return diag.FromErr(err)
 	}
-	var st *v1test.LoadBalancerStatus
-	err = JSONCopy(ing.Status.LoadBalancer, st)
 	err = d.Set("status", []interface{}{
 		map[string][]interface{}{
-			"load_balancer": flattenLoadBalancerStatus(*st),
+			"load_balancer": flattenLoadBalancerStatus(ing.Status.LoadBalancer),
 		},
 	})
 	if err != nil {
