@@ -125,7 +125,7 @@ func flattenServiceSpec(in v1.ServiceSpec) []interface{} {
 	return []interface{}{att}
 }
 
-func flattenLoadBalancerStatus[V v1beta1.IngressLoadBalancerStatus | networking.IngressLoadBalancerStatus](in V) []interface{} {
+func flattenLoadBalancerStatus[V v1.LoadBalancerStatus | v1beta1.IngressLoadBalancerStatus | networking.IngressLoadBalancerStatus](in V) []interface{} {
 	inVal := reflect.ValueOf(in)
 	ingSlice := inVal.FieldByName("Ingress")
 	out := make([]interface{}, ingSlice.Len())
