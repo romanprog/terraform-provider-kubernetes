@@ -17,8 +17,8 @@ import (
 	tf5server "github.com/hashicorp/terraform-plugin-go/tfprotov5/tf5server"
 	tf5muxserver "github.com/hashicorp/terraform-plugin-mux/tf5muxserver"
 
-	"github.com/romanprog/terraform-provider-kubernetes/kubernetes"
-	manifest "github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
+	"github.com/hashicorp/terraform-provider-kubernetes/kubernetes"
+	manifest "github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
 )
 
 const providerName = "registry.terraform.io/hashicorp/kubernetes"

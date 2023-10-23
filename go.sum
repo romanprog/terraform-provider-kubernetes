@@ -645,6 +645,7 @@ k8s.io/kubectl v0.25.11 h1:6bsft5Gan6BCvQ7cJbDRFjTm4Zfq8GuUYpsWAdVngYE=
 k8s.io/kubectl v0.25.11/go.mod h1:8mIfgkFgT+yJ8/TlmPW1qoRh46H2si9q5nW8id7i9iM=
 k8s.io/kubectl v0.28.3 h1:H1Peu1O3EbN9zHkJCcvhiJ4NUj6lb88sGPO5wrWIM6k=
 k8s.io/kubectl v0.28.3/go.mod h1:RDAudrth/2wQ3Sg46fbKKl4/g+XImzvbsSRZdP2RiyE=
+k8s.io/kubernetes v1.15.0-alpha.0 h1:gIwzzIgt0BX8fznDZRxdZv2837cEmVetI54aUfzkPk8=
 k8s.io/kubernetes v1.15.0-alpha.0/go.mod h1:ocZa8+6APFNC2tX1DZASIbocyYT5jHzqFVsY5aoB7Jk=
 k8s.io/kubernetes v1.25.11 h1:vl9UYkjHuWOyk1EAfnzVlakFCziEBMazLthW/YuHb8M=
 k8s.io/kubernetes v1.25.11/go.mod h1:uokqZvgUrcgwuapBSvrq9+y5TMXsvm68qgiRiidZs2A=

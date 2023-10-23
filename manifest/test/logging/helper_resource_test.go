@@ -11,7 +11,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/hashicorp/terraform-plugin-log/tfsdklog"
 	"github.com/hashicorp/terraform-plugin-log/tfsdklogtest"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/logging"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/logging"
 )
 
 func TestHelperResourceDebug(t *testing.T) {

@@ -11,9 +11,9 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
-	tfstatehelper "github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/state"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/kubernetes"
+	tfstatehelper "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/state"
 )
 
 func TestKubernetesManifest_Secret(t *testing.T) {

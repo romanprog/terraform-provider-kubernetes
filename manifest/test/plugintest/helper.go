@@ -12,7 +12,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/terraform-exec/tfexec"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/logging"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/logging"
 )
 
 // AutoInitProviderHelper is the main entrypoint for testing provider plugins

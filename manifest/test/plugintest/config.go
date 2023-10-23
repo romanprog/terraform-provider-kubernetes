@@ -10,7 +10,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/logging"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/logging"
 
 	"github.com/hashicorp/go-version"
 	install "github.com/hashicorp/hc-install"

@@ -13,8 +13,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/provider"
-	tfstatehelper "github.com/romanprog/terraform-provider-kubernetes/manifest/test/helper/state"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/provider"
+	tfstatehelper "github.com/hashicorp/terraform-provider-kubernetes/manifest/test/helper/state"
 )
 
 func TestKubernetesManifest_CustomResourceDefinition(t *testing.T) {

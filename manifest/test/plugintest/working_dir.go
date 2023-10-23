@@ -14,7 +14,7 @@ import (
 
 	"github.com/hashicorp/terraform-exec/tfexec"
 	tfjson "github.com/hashicorp/terraform-json"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/test/logging"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/test/logging"
 )
 
 const (

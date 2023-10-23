@@ -406,7 +406,7 @@ func TestMorphValueToType(t *testing.T) {
 			}),
 		},
 
-		// Testcases to demonstrate https://github.com/romanprog/terraform-provider-kubernetes-alpha/issues/190
+		// Testcases to demonstrate https://github.com/hashicorp/terraform-provider-kubernetes-alpha/issues/190
 		"string(unknown value)->string": {
 			In: sampleInType{
 				V: tftypes.NewValue(tftypes.String, tftypes.UnknownValue),

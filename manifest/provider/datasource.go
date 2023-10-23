@@ -10,8 +10,8 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/morph"
-	"github.com/romanprog/terraform-provider-kubernetes/manifest/payload"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/morph"
+	"github.com/hashicorp/terraform-provider-kubernetes/manifest/payload"
 
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/api/meta"
