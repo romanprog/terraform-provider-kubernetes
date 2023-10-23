@@ -4,12 +4,9 @@
 package kubernetes
 
 import (
-	"bytes"
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
-	"reflect"
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -275,30 +272,6 @@ func resourceKubernetesIngressV1Read(ctx context.Context, d *schema.ResourceData
 		return diag.FromErr(err)
 	}
 
-	return nil
-}
-
-// JSONCopy - convert interface data in to type of out with JSON tags.
-func JSONCopy(in, out interface{}) error {
-	// t := reflect.TypeOf(out)
-	if reflect.ValueOf(out).IsNil() {
-		return fmt.Errorf("can't write to nil target")
-	}
-
-	buffer := &bytes.Buffer{}
-	encoder := json.NewEncoder(buffer)
-	encoder.SetEscapeHTML(false)
-	encoder.SetIndent(" ", " ")
-	err := encoder.Encode(in)
-	if err != nil {
-		return err
-	}
-	//log.Warnf("JSON: %v", buffer.String())
-	decoder := json.NewDecoder(buffer)
-	err = decoder.Decode(&out)
-	if err != nil {
-		return err
-	}
 	return nil
 }
 

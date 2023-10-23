@@ -9,6 +9,7 @@ import (
 	gversion "github.com/hashicorp/go-version"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	v1 "k8s.io/api/core/v1"
+	"k8s.io/api/extensions/v1beta1"
 	networking "k8s.io/api/networking/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
 )
@@ -124,7 +125,7 @@ func flattenServiceSpec(in v1.ServiceSpec) []interface{} {
 	return []interface{}{att}
 }
 
-func flattenLoadBalancerStatus[V v1.LoadBalancerStatus | networking.IngressLoadBalancerStatus](in V) []interface{} {
+func flattenLoadBalancerStatus[V v1beta1.IngressLoadBalancerStatus | networking.IngressLoadBalancerStatus](in V) []interface{} {
 	inVal := reflect.ValueOf(in)
 	ingSlice := inVal.FieldByName("Ingress")
 	out := make([]interface{}, ingSlice.Len())
